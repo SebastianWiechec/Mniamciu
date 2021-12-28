@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "729160709089",
+    "project_id": "icespotting",
+    "storage_bucket": "icespotting.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729160709089:android:7f55c031a5957c4cf258a0",
+        "android_client_info": {
+          "package_name": "com.pwsz.icespoting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729160709089-openkoq9ms3jjpvgqlhbcv6tgjmkgv7j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZqBqmfgvSILa3OFHkvgwTI_3U2H4WtBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729160709089-openkoq9ms3jjpvgqlhbcv6tgjmkgv7j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
