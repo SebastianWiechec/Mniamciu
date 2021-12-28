@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useContext, useEffect } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, FlatList, Text, View } from 'react-native';
 import { List, Divider, TextInput, Card } from 'react-native-paper';
 
 import { SafeArea } from '../../../components/SafeArea/SafeArea';
@@ -57,7 +57,7 @@ export const PhotoLibrary = ({ route, navigation }) => {
 
       await listFilesAndDirectories(ref).then(() => {
         setPhotos(photosUrls);
-        console.log('Finished listing');
+        // console.log('Finished listing');
       });
     };
 
@@ -69,11 +69,33 @@ export const PhotoLibrary = ({ route, navigation }) => {
   console.log(photos, 'photos');
   //console.log(photos.length, 'photos');
 
-  return (
-    <ScrollView>
-      {photos.map((el, key) => (
-        <RestaurantCardCover key={key} source={{ uri: el }} />
-      ))}
-    </ScrollView>
-  );
+  if (photos.length) {
+    return (
+      <FlatList
+        data={photos}
+        initialNumToRender={4}
+        removeClippedSubviews={true} // Unmount components when outside of window
+        maxToRenderPerBatch={1} // Reduce number in each render batch
+        updateCellsBatchingPeriod={100} // Increase time between renders
+        windowSize={5} // Reduce the window size
+        renderItem={({ item, index, separators }) => (
+          <RestaurantCardCover key={index} source={{ uri: item }} />
+        )}
+      />
+    );
+  } else {
+    return (
+      <View
+        style={{
+          flex: 6,
+          alignSelf: 'center',
+          justifyContent: 'center',
+          alignContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Text>Jeszcze nie ma żadnych zdjęć</Text>
+      </View>
+    );
+  }
 };
